@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block body %}
+
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <ul id="stream">
+        {% for item in stream %}
+            <li>
+            <div>
+                <a href="{% url 'qna:post-detailview' item.pk %}" class="post">{{ item }}</a>
+
+                <hr style="margin-bottom: 10px;"/>
+
+                {% if item.ques %}
+                    <div>
+                        <ul id="stream-view-option">
+                            <li><a href="{% url 'qna:post-detailview' item.pk %}">{{ item.created|naturalday }}</a> &bull;</li>
+                            <li><a href="#">{{ item.ques.views }} view{{ item.ques.views|pluralize }}</a> &bull;</li>
+                            <li><a href="#">{{ item.ques.comments }} comment{{ item.ques.comments|pluralize }}</a> &bull;</li>
+                            <li><a href="{% url 'qna:post-detailview' item.pk %}">{{ item.ques.answers }} answer{{ item.ques.answers|pluralize }}</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <ul id="stream-post-option" class="text-right">
+                            <li><a href="#"><i class="fa fa-heart-o"></i></a> &nbsp;</li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i></a> &nbsp;</li>
+                            <li><a href="#"><i class="fa fa-font"></i></a> &nbsp;</li>
+                        </ul>
+                    </div>
+                {% elif item.ans %}
+                    <div>
+                        <ul id="stream-view-option">
+                            <li><a href="{% url 'qna:post-detailview' item.pk %}">{{ item.created|naturalday }}</a> &bull;</li>
+                            <li><a href="#">{{ item.ans.views }} view{{ item.ans.views|pluralize }}</a> &bull;</li>
+                            <li><a href="#">{{ item.ans.comments }} comment{{ item.ans.comments|pluralize }}</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <ul id="stream-post-option" class="text-right">
+                            <li><a href="#"><i class="fa fa-heart-o"></i></a> &nbsp;</li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i></a> &nbsp;</li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            </li>
+        {% empty %}
+            <li>No items yet.</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-3"></div>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+
+    $(document).ready(function() {
+        $("#stream-link").css("border-bottom", "solid");
+        $("#stream-link").css("border-color", "#FF7F50");
+        $("#stream-link").css("color", "#9D9D9D");
+    });
+
+    </script>
+{% endblock %}

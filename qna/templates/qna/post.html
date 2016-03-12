@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    {% if object.ques %}
+        <h4>{{ object.ques }}</h4>
+        <p>{{ object.ques.user }}</p>
+    {% elif object.ans %}
+        <h4>{{ object.ans }}</h4>
+        <p>{{ object.ans.user }}</p>
+    {% endif %}
+
+{% endblock %}

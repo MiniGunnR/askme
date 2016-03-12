@@ -1,0 +1,94 @@
+html, body {
+    margin: 30px 0px;
+}
+
+.spacer {
+    height: 15px;
+}
+
+.post:hover {
+    text-decoration: none;
+}
+
+#top-bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
+}
+
+.top-bar-link {
+    color: #ADADAD;
+    font-weight: bold;
+}
+
+.top-bar-link:hover {
+    color: #9D9D9D;
+    text-decoration: none;
+    border-bottom: solid;
+    border-color: coral;
+}
+
+#mid-menu,
+#right-menu {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0px;
+}
+
+#mid-menu > li,
+#right-menu > li {
+    display: inline;
+    padding: 10px;
+}
+
+#mid-menu > li > a {
+    width: 70px;
+}
+
+#stream {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#stream > li {
+    display: block;
+    border: solid;
+    border-width: 1px;
+    border-color: #ADADAD;
+    padding: 10px;
+    margin: 10px;
+}
+
+#stream-post-option,
+#stream-view-option {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    color: #ADADAD;
+}
+
+#stream-view-option {
+    float: left;
+}
+
+#stream-view-option > li {
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+#stream-view-option > li > a,
+#stream-post-option > li > a {
+    color: #ADADAD;
+}
+
+#stream-post-option > li {
+    display: inline-block;
+    font-size: 1.1em;
+}
+
+#stream-post-option > li > a:hover {
+    color: coral;
+}
